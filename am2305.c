@@ -1,3 +1,8 @@
+if (!bcm2835_init())
+{
+    return VO_RET_FAIL;
+}
+
 vo_uint32 vf_ReadData_AM2305(vo_uint32 udwGPIO_PORT, vo_uint32 *pudwData)
 {
     vo_uint32 udwI     = 0;
@@ -82,3 +87,5 @@ vo_uint32 vf_ReadData_AM2305(vo_uint32 udwGPIO_PORT, vo_uint32 *pudwData)
 
     return VO_RET_OK;
 }
+
+bcm2835_close();
